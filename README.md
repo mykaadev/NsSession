@@ -115,8 +115,8 @@ In `DefaultGame.ini`, under `[/Script/NsSession.NsSessionSubsystem]`:
 - The worldwide search needs Steam on Windows.
 
 ## 📚 Documentation
-- [User Guide](https://github.com/mykaadev/NsSession/blob/main/Docs/UserGuide.md) – Setup, common tasks, settings, and debug tools.
-- [Technical Documentation](https://github.com/mykaadev/NsSession/blob/main/Docs/TechDocumentation.md) – Architecture, lifetime, extension points, and tests.
+- [User Guide](https://mykaadev.github.io/plugins/nssession/user-guide/) – Setup, common tasks, settings, and debug tools.
+- [Technical Documentation](https://mykaadev.github.io/plugins/nssession/tech-documentation/) – Architecture, lifetime, extension points, and tests.
 
 <!-- GH_ONLY_START -->
 ## ❤️ Credits
