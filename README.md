@@ -21,6 +21,7 @@
   <a href="#-getting-started">🚀 Getting Started</a> •
   <a href="#-api">🔧 API</a> •
   <a href="#-limits">🚧 Limits</a> •
+  <a href="#-documentation">📚 Documentation</a> •
   <a href="#-credits">❤️ Credits</a> •
   <a href="#-support">📞 Support</a> •
   <a href="#-license">📃 License</a>
@@ -113,11 +114,11 @@ In `DefaultGame.ini`, under `[/Script/NsSession.NsSessionSubsystem]`:
 - No session browser. A player needs the code.
 - The worldwide search needs Steam on Windows.
 
-<!-- GH_ONLY_START -->
 ## 📚 Documentation
-- [User Guide](Docs/UserGuide.md) – Setup, common tasks, settings, and debug tools.
-- [Technical Documentation](Docs/TechDocumentation.md) – Architecture, lifetime, extension points, and tests.
+- [User Guide](https://github.com/mykaadev/NsSession/blob/main/Docs/UserGuide.md) – Setup, common tasks, settings, and debug tools.
+- [Technical Documentation](https://github.com/mykaadev/NsSession/blob/main/Docs/TechDocumentation.md) – Architecture, lifetime, extension points, and tests.
 
+<!-- GH_ONLY_START -->
 ## ❤️ Credits
 <a href="https://github.com/mykaadev/NsSession/graphs/contributors"><img src="https://contrib.rocks/image?repo=mykaadev/NsSession"/></a>
 
