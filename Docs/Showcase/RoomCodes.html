@@ -1,0 +1,26 @@
+<!-- Showcase for the website: the docs link to this file, and the site turns it into a host and a friend that use a room code. -->
+<!-- The alphabet and the length come from NsSessionSubsystem.h. The lines come from FNsRoomStatus::GetDefaultText. {Code}, {Network}, and {Detail} are the fields of the status. -->
+<figure class="ns-rooms" data-alphabet="ABCDEFGHJKLMNPQRSTUVWXYZ" data-length="5">
+  <figcaption>The host makes a room code. The friend types the code and joins. The code rules, the order of the steps, and the status lines come from NsSession. The network part is simulated: the searches, the join, and the travel use fixed delays, and no data goes over a network.</figcaption>
+  <p class="ns-rooms-rules">A code has 5 letters from ABCDEFGHJKLMNPQRSTUVWXYZ. I and O are not in the list, so players cannot mix them up with 1 and 0. Join Room removes spaces at the ends and changes the code to upper case.</p>
+  <ul class="ns-rooms-lines">
+    <li data-status="Opening"><b>Opening</b> Opening room {Code} on {Network}...</li>
+    <li data-status="NoMap"><b>NoMap</b> The game has no map to host.</li>
+    <li data-status="MapMissing"><b>MapMissing</b> This build has no map {Detail}. Package the game again with that map.</li>
+    <li data-status="BadCode"><b>BadCode</b> Type the 5-letter room code.</li>
+    <li data-status="SearchFailed"><b>SearchFailed</b> Cannot search for rooms. Check your Steam or LAN connection.</li>
+    <li data-status="Searching"><b>Searching</b> Looking for room {Code}...</li>
+    <li data-status="SearchingWorldwide"><b>SearchingWorldwide</b> Looking for room {Code} in every region...</li>
+    <li data-status="NotFound"><b>NotFound</b> No room {Code}. Check the code, and make sure the host is still in the room.</li>
+    <li data-status="Found"><b>Found</b> Room {Code} found on {Network}. Joining...</li>
+    <li data-status="FoundWorldwide"><b>FoundWorldwide</b> Room {Code} found in another region. Joining...</li>
+    <li data-status="JoinNoInterface"><b>JoinNoInterface</b> The room was found, but its network is not available.</li>
+    <li data-status="JoinFailed"><b>JoinFailed</b> The room was found, but the join could not start.</li>
+    <li data-status="RoomFull"><b>RoomFull</b> That room is full.</li>
+    <li data-status="JoinRefused"><b>JoinRefused</b> The room did not accept the join. Try again.</li>
+    <li data-status="NoController"><b>NoController</b> The join needs a local player controller.</li>
+    <li data-status="TravelFailed"><b>TravelFailed</b> The travel failed: {Detail}</li>
+    <li data-status="HostLeft"><b>HostLeft</b> The host left. The room is closed.</li>
+    <li data-status="ConnectionFailed"><b>ConnectionFailed</b> The connection failed: {Detail}</li>
+  </ul>
+</figure>

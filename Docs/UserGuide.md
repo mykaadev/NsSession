@@ -6,6 +6,8 @@ NsSession gives multiplayer rooms with a 5-letter code, like KXQTP. The host ope
 
 NsSession has no UI, no session browser, no player names, and no map setting. Your game gives the map, shows the status lines, closes its menus, and opens the title map after a leave.
 
+[![A host with room code KXQTP, and a friend who finds the room and joins](Showcase/img/roomcodes.png)](Showcase/RoomCodes.html)
+
 ## Setup
 
 1. Copy the `NsSession` folder into the `Plugins` folder of your project.
