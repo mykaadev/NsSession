@@ -114,7 +114,7 @@ void UMyMenu::HandleRoomStatus(const FNsRoomStatus& Status)
 
 ## 📚 Documentation
 - [User Guide](https://mykaadev.github.io/plugins/nssession/user-guide/) – Setup, common tasks, settings, and debug tools.
-- [Technical Documentation](https://mykaadev.github.io/plugins/nssession/tech-documentation/) – Architecture, lifetime, extension points, and tests.
+- [Technical Documentation](https://mykaadev.github.io/plugins/nssession/tech-documentation/) – Architecture, lifetime, and extension points.
 
 <!-- GH_ONLY_START -->
 ## ❤️ Credits

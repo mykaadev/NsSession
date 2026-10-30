@@ -14,7 +14,7 @@
 ### Folders
 
 - `Source/NsSession/Public` – `NsSessionModule.h`, `NsSessionSubsystem.h`, `NsSessionTypes.h`.
-- `Source/NsSession/Private` – `NsSessionModule.cpp`, `NsSessionSubsystem.cpp`, `NsSessionTypes.cpp`, `NsSteamLobbySearch.h`, `NsSteamLobbySearch.cpp`, and `Tests/NsSessionTest.cpp`.
+- `Source/NsSession/Private` – `NsSessionModule.cpp`, `NsSessionSubsystem.cpp`, `NsSessionTypes.cpp`, `NsSteamLobbySearch.h`, `NsSteamLobbySearch.cpp`.
 - `Source/NsSessionSteam/Public` – `NsSteamNetConnection.h`.
 - `Source/NsSessionSteam/Private` – `NsSessionSteamModule.cpp`, `NsSteamNetConnection.cpp`.
 
@@ -104,21 +104,3 @@ The subsystem has no virtual functions of its own. Its private handlers are not 
 - Session keys: `NSCODE` (the code), `NSGAME` (the game tag), and `NSHOST` (the Steam ID of the host, Steam only). All use `ViaOnlineServiceAndPing`. Steam stores a string key with the suffix `_s` in the lobby data.
 - `CanUseSteam()` is false in Play In Editor, with `-lanroom`, and when the Steam identity is not logged in for user 0.
 - `UNsSteamNetConnection::CleanUp` points the address key in `MappedClientConnections` at itself before the engine removes it. Then it gives the key to another open connection from the same address. It logs that case to `LogNsSessionSteam`.
-
-## Testing
-
-| Test | What it checks |
-|---|---|
-| `NsSession.RoomCode` | 50 new codes pass `NormalizeRoomCode`. A code goes to upper case. A short code, the letter O, and a digit fail. |
-| `NsSession.StatusText` | Each `ENsRoomStatus` value has a default line. |
-
-The tests use `EditorContext` and `EngineFilter`. Run them in **Session Frontend > Automation**, filter `NsSession`. Or start the editor with `-ExecCmds="Automation RunTests NsSession"`.
-
-The plugin has no automated test for host and join. A host and join test needs two game instances, for example Play In Editor with 2 players in Standalone net mode, which uses LAN.
-
-## Change Rules
-
-- Keep the session keys `NSCODE`, `NSGAME`, and `NSHOST`, and the `_s` suffix, the same in every build that must find the same rooms.
-- Keep `RoomCodeAlphabet` and `RoomCodeLength` the same in every build that must join the same rooms. `NormalizeRoomCode` refuses codes outside them.
-- Add a new status at the end of `ENsRoomStatus`, and give it a line in `GetDefaultText`. The test `NsSession.StatusText` fails for a status without a line.
-- Keep the class path `/Script/NsSessionSteam.NsSteamNetConnection`. Projects name it in `DefaultEngine.ini`.
