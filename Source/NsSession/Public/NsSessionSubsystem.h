@@ -49,6 +49,10 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Session")
     bool HostRoom(const FSoftObjectPath& Map);
 
+    /** Makes a new code, opens the map as a listen server, and advertises the room. Blueprint version with a map picker */
+    UFUNCTION(BlueprintCallable, Category = "Session", DisplayName = "Host Room")
+    bool HostRoomMap(TSoftObjectPtr<UWorld> Map) { return HostRoom(Map.ToSoftObjectPath()); }
+
     /** Finds the room with this code on LAN and Steam, then joins it */
     UFUNCTION(BlueprintCallable, Category = "Session")
     bool JoinRoom(const FString& Code);
@@ -74,7 +78,20 @@ public:
     bool IsSearching() const;
 
     /** Gives the last failure of a lost room one time, then clears it. A title menu shows it after the travel home */
+    UFUNCTION(BlueprintCallable, Category = "Session")
     bool ConsumeLastFailure(FNsRoomStatus& OutStatus);
+
+    /** Returns the latest status of a host or a join, and false before the first status */
+    UFUNCTION(BlueprintPure, Category = "Session")
+    bool GetLastStatus(FNsRoomStatus& OutStatus) const;
+
+    /** Returns the English line of the latest status, or an empty text. A menu can show it each frame */
+    UFUNCTION(BlueprintPure, Category = "Session")
+    FText GetLastStatusText() const;
+
+    /** Returns the English line of a status */
+    UFUNCTION(BlueprintPure, Category = "Session")
+    static FText GetStatusText(const FNsRoomStatus& Status) { return Status.GetDefaultText(); }
 
     /** Returns the code in upper case when it is a valid room code, otherwise an empty string */
     static FString NormalizeRoomCode(const FString& Code);
@@ -209,6 +226,9 @@ private:
 
     /** Last failure of a lost room */
     TOptional<FNsRoomStatus> LastFailure;
+
+    /** Latest status of a host or a join */
+    TOptional<FNsRoomStatus> LastStatus;
 
     /** Worldwide Steam search, when the regional search finds nothing */
     TSharedPtr<class FNsSteamLobbySearch> WorldwideSearch;

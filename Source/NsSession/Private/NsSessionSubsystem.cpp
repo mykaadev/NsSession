@@ -150,6 +150,21 @@ bool UNsSessionSubsystem::ConsumeLastFailure(FNsRoomStatus& OutStatus)
     return true;
 }
 
+bool UNsSessionSubsystem::GetLastStatus(FNsRoomStatus& OutStatus) const
+{
+    if (!LastStatus.IsSet())
+    {
+        return false;
+    }
+    OutStatus = LastStatus.GetValue();
+    return true;
+}
+
+FText UNsSessionSubsystem::GetLastStatusText() const
+{
+    return LastStatus.IsSet() ? LastStatus->GetDefaultText() : FText::GetEmpty();
+}
+
 FString UNsSessionSubsystem::NormalizeRoomCode(const FString& Code)
 {
     const FString Upper = Code.TrimStartAndEnd().ToUpper();
@@ -555,5 +570,6 @@ void UNsSessionSubsystem::ReportStatus(const ENsRoomStatus Status, const bool bF
     {
         LastFailure = Report;
     }
+    LastStatus = Report;
     OnRoomStatus.Broadcast(Report);
 }
